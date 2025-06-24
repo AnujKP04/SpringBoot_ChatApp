@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: chatapp-backend
+    runtime: java
+    rootDir: Backend
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/ChatApp-0.0.1-SNAPSHOT.jar"
+    envVars:
+      - key: JAVA_HOME
+        value: /opt/render/project/.java
+      - key: MYSQLHOST
+        fromEnvVar: MYSQLHOST
+      - key: MYSQLPORT
+        fromEnvVar: MYSQLPORT
+      - key: MYSQLDATABASE
+        fromEnvVar: MYSQLDATABASE
+      - key: MYSQLUSER
+        fromEnvVar: MYSQLUSER
+      - key: MYSQLPASSWORD
+        fromEnvVar: MYSQLPASSWORD
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
